@@ -70,3 +70,51 @@ TEST(RandoTest, isPrime)
         }
     }
 }
+
+TEST(RandoTest, nearestToZero)
+{
+    Rando rando;
+    for( int a = 1; a < 5; a++ )
+    {
+        ASSERT_TRUE( rando.nearestToZero( a, 1 ) == a );
+    }
+    for( int a = 1; a < 5; a++ )
+    {
+        ASSERT_TRUE( rando.nearestToZero( a, -1 ) == a );
+    }
+    for( int a = 1; a < 5; a++ )
+    {
+        ASSERT_TRUE( rando.nearestToZero( a, 30 ) == 30 );
+    } 
+    for( int a = 1; a < 5; a++ )
+    {
+        ASSERT_TRUE( rando.nearestToZero( a, -30 ) == -31 );
+    }
+    for( int a = 1; a < 5; a++ )
+    {
+        ASSERT_TRUE( rando.nearestToZero( 1, a ) == a );
+    }
+    for( int a = 1; a < 5; a++ )
+    {
+        ASSERT_TRUE( rando.nearestToZero( -1, a ) == a );
+    }
+    for( int a = 1; a < 5; a++ )
+    {
+        ASSERT_TRUE( rando.nearestToZero( 30, a ) == 30 );
+    } 
+    for( int a = 1; a < 5; a++ )
+    {
+        ASSERT_TRUE( rando.nearestToZero( -30, a ) == -30 );
+    }
+
+    ASSERT_TRUE( rando.nearestToZero( 0, 0 ) == 0 );
+
+    for( int a = 1; a < 5; a++ )
+    {
+        ASSERT_TRUE( rando.nearestToZero( 0, a ) != 0 );
+    }
+    for( int a = 1; a < 5; a++ )
+    {
+        ASSERT_TRUE( rando.nearestToZero( a, 0 ) != 0 );
+    }
+}

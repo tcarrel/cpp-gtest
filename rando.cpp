@@ -4,6 +4,7 @@
 
 using std::sqrt;
 using std::ceil;
+using std::abs;
 
 /**
  * Worry if only one child is smiling or if all children are smiling
