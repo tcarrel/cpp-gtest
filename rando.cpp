@@ -32,25 +32,28 @@ bool Rando::isDivisibleBy(int first, int second)
  **/
 bool Rando::isPrime(int num)
 {
+    double check = (double) num;
+
     // Take care of the base cases first.
-    if( num <= 1 ) 
+    if( check <= 1 ) 
         return false;
 
-    if( num == 2 || num == 3 )
+    if( check == 2 || check == 3 )
         return true;
 
-    //  '2' was already checked, so all even numbers can
+    //  '2' was already checked, so all even checkbers can
     // now be rejected out-of-hand.
-    if( !(num % 2) ) 
+    if( !((int) check % 2) ) 
         return false;
 
-    double highest = floor( sqrt( num ) ); // Calculate once.
+    double highest = floor( sqrt( check ) ); // Calculate once.
 
-    for( double k = 3.0; k < highest; k += 2.0 ) //Even nums can be skipped
+    for( double k = 3.0; k <= highest; k += 2.0 ) //Even checks can be skipped
     {
-        double div = ( (double) num) / k;
+        double divd = ( (double) check) / k;
+        int    divi = ( (double) check) / k;
 
-        if( div == (int) div )
+        if( divd == divi )
             return false;
     }
     return true;
