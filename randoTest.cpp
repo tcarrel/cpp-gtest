@@ -32,11 +32,15 @@ TEST(RandoTest, allChildrenSmile)
 TEST(RandoTest, isPrime)
 {
     Rando rando;
-    for( int n = -1; n < 101; n++)
+    for( int n = 100; n >= -1; n--)
     {
         switch( n )
-        {   // cases are all prime numbers between 2 and 100. (Should be 25).
-            case 2:
+        {
+            default: // negative or composite numbers are default.
+                ASSERT_FALSE( rando.isPrime( n ) );
+                break;
+            // cases are all prime numbers between 2 and 100. (Should be 25).
+            case 2:  // Fallthroughts...
             case 3:
             case 5:
             case 7:
@@ -61,10 +65,8 @@ TEST(RandoTest, isPrime)
             case 83:
             case 89:
             case 97:
-                ASSERT_TRUE( rando.isPrime( n ) );
-                break;
-            default: // negative or composite numbers are default.
-                ASSERT_FALSE( rando.isPrime( n ) );
+                // x == true used for clarity in gtest output.
+                ASSERT_TRUE( rando.isPrime( n ) ); 
         }
     }
 }
