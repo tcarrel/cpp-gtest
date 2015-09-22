@@ -69,8 +69,11 @@ int Rando::nearestToZero(int a, int b)
     if( abs(a) == abs(b) )
         return a;
 
-    if( abs(a) < abs(b) )
-        return a;
-    else
+    if( a == 0 )
         return b;
+
+    if( b == 0 )
+        return a;
+
+    return (abs(a) < abs(b)) ? a : b;
 }

@@ -76,37 +76,37 @@ TEST(RandoTest, nearestToZero)
     Rando rando;
     for( int a = 2; a < 5; a++ )
     {
-        ASSERT_TRUE( rando.nearestToZero( a, 1 ) == a );
+        ASSERT_TRUE( rando.nearestToZero( a, 1 ) == 1 );
     }
     for( int a = 2; a < 5; a++ )
     {
-        ASSERT_TRUE( rando.nearestToZero( a, -1 ) == a );
+        ASSERT_TRUE( rando.nearestToZero( a, -1 ) == -1 );
     }
     for( int a = 1; a < 5; a++ )
     {
-        ASSERT_TRUE( rando.nearestToZero( a, 30 ) == 30 );
+        ASSERT_TRUE( rando.nearestToZero( a, 30 ) == a );
     } 
     for( int a = 1; a < 5; a++ )
     {
-        ASSERT_TRUE( rando.nearestToZero( a, -30 ) == -31 );
+        ASSERT_TRUE( rando.nearestToZero( a, -30 ) == a );
     }
     for( int a = 2; a < 5; a++ )
     {
-        ASSERT_TRUE( rando.nearestToZero( 1, a ) == a );
+        ASSERT_TRUE( rando.nearestToZero( 1, a ) == 1 );
     }
     for( int a = 2; a < 5; a++ )
     {
-        ASSERT_TRUE( rando.nearestToZero( -1, a ) == a );
+        ASSERT_TRUE( rando.nearestToZero( -1, a ) == -1 );
     }
     for( int a = 2; a < 5; a++ )
     {
-        ASSERT_TRUE( rando.nearestToZero( 30, a ) == 30 );
+        ASSERT_TRUE( rando.nearestToZero( 30, a ) == a );
     } 
     for( int a = 1; a < 5; a++ )
     {
-        ASSERT_TRUE( rando.nearestToZero( -30, a ) == -30 );
+        ASSERT_TRUE( rando.nearestToZero( -30, a ) == a );
     }
-    for( int a = 1, b = -1; a < 5; a++, b++ )
+    for( int a = 1, b = -1; a > -5; a--, b++ )
     {
         ASSERT_TRUE( rando.nearestToZero( a, b ) == a );
         ASSERT_TRUE( rando.nearestToZero( b, a ) == b );
@@ -117,9 +117,6 @@ TEST(RandoTest, nearestToZero)
     for( int a = 1; a < 5; a++ )
     {
         ASSERT_TRUE( rando.nearestToZero( 0, a ) != 0 );
-    }
-    for( int a = 1; a < 5; a++ )
-    {
         ASSERT_TRUE( rando.nearestToZero( a, 0 ) != 0 );
     }
 }
