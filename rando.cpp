@@ -23,6 +23,10 @@ bool Rando::shouldWorry(bool childASmile, bool childBSmile, bool childCSmile)
  **/
 bool Rando::isDivisibleBy(int first, int second)
 {
+    //  Since order matters for division, I'll be making an
+    // assumption that it is first|second, i.e.:
+    // for x = first, there exists a k in Z such that k != 0 and
+    // first == k * second.
     return false;
 }
 

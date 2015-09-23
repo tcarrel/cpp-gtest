@@ -29,6 +29,30 @@ TEST(RandoTest, allChildrenSmile)
     ASSERT_TRUE( rando.shouldWorry(true,true,true) );
 }
 
+TEST(RandoTest, isDivisibleBy)
+{
+    Rando rando;
+    ASSERT_FALSE( rando.isDivisibleBy( 0, 0 ) );
+    for( int a = -3; a < 4; a++ )
+    {
+        if ( a == 0 )  // Skip zero, already checked.
+        {
+            a++;
+        }
+
+        ASSERT_TRUE(  rando.isDivisibleBy( 0, a ) );
+        ASSERT_FALSE( rando.isDivisibleBy( a, 0 ) );
+    }
+    for( int a = 1; a < 5; a++ )
+    {
+        ASSERT_TRUE( rando.isDivisibleBy( 5 * a, 5 ) );
+    }
+    for( int a = 3; a < 8; a++ )
+    {
+        ASSERT_FALSE( rando.isDivisibleBy( 2, a ) );
+    }
+}
+
 TEST(RandoTest, isPrime)
 {
     Rando rando;
@@ -39,7 +63,7 @@ TEST(RandoTest, isPrime)
             default: // negative or composite numbers are default.
                 ASSERT_FALSE( rando.isPrime( n ) );
                 break;
-            // cases are all prime numbers between 2 and 100. (Should be 25).
+                // cases are all prime numbers between 2 and 100. (Should be 25).
             case 2:  // Fallthroughts...
             case 3:
             case 5:
