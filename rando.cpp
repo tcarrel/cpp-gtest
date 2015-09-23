@@ -73,13 +73,11 @@ bool Rando::isPrime(int num)
 
     for( double k = 3.0; k <= highest; k += 2.0 ) //Even checks can be skipped
     {
-        //  Using this function here is slower than just calculating the
-        // divisibility directly.  But is more demonstrative for this
-        // assignment.
-        if( isDivisibleBy( num, k ) )
-        {
+        double divd = ( (double) check) / k;
+        int    divi = ( (double) check) / k;
+
+        if( divd == divi )
             return false;
-        }
     }
     return true;
 }
