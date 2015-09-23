@@ -25,8 +25,26 @@ bool Rando::isDivisibleBy(int first, int second)
 {
     //  Since order matters for division, I'll be making an
     // assumption that it is first|second, i.e.:
-    // for x = first, there exists a k in Z such that k != 0 and
-    // first == k * second.
+    // for x = first, there exists a k in Z such that k > 1 and
+    // first == k * second.  Also, a bool isn't really sufficient to
+    // enumerate the possible results of a test.  0/0 is undefined, so
+    // neither true nor false really apply.
+
+    if( second == 0 )
+        return false;
+
+    if( first == 0 )
+        return true;
+
+    if( first == second )
+        return true;
+
+    // Almost identical to checking for primes...
+    for ( int k = 2; k <= floor(sqrt(first)); k++ )
+    {
+        if( first == k * second )
+            return true;
+    }
     return false;
 }
 

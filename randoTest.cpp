@@ -32,14 +32,15 @@ TEST(RandoTest, allChildrenSmile)
 TEST(RandoTest, isDivisibleBy)
 {
     Rando rando;
+    
     ASSERT_FALSE( rando.isDivisibleBy( 0, 0 ) );
+
     for( int a = -3; a < 4; a++ )
     {
         if ( a == 0 )  // Skip zero, already checked.
         {
             a++;
         }
-
         ASSERT_TRUE(  rando.isDivisibleBy( 0, a ) );
         ASSERT_FALSE( rando.isDivisibleBy( a, 0 ) );
     }
