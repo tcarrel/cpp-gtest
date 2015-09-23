@@ -20,7 +20,7 @@ class RandoTest : public ::testing::Test
         RandoTest(){} //constructor runs before each test
         virtual ~RandoTest(){} //destructor cleans up after tests
         virtual void SetUp(){} //sets up before each test (after constructor)
-        virtual void TearDown(){} //clean up after each test, (before destructor) 
+        virtual void TearDown(){}//clean up after each test,(before destructor)
 };
 
 TEST(RandoTest, allChildrenSmile)
@@ -64,7 +64,7 @@ TEST(RandoTest, isPrime)
             default: // negative or composite numbers are default.
                 ASSERT_FALSE( rando.isPrime( n ) );
                 break;
-                // cases are all prime numbers between 2 and 100. (Should be 25).
+                // cases are all prime numbers between 2 and 100.
             case 2:  // Fallthroughts...
             case 3:
             case 5:
